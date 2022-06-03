@@ -6,16 +6,12 @@ import time
 path = r'C:\Program Files (x86)\chromedriver.exe'
 driver = webdriver.Chrome(path)
 
-# Open shufersal db
 driver.get('http://prices.shufersal.co.il/')
 
-# Filter to full price list (not promos or partial lists)
 select = Select(driver.find_element_by_css_selector('#ddlCategory'))
 select.select_by_visible_text('PricesFull')
-time.sleep(3)
-
-# Now selenium will go through the first 4 pages and get all the links. 
-
+time.sleep(4)
+#
 css_selectorList = [
     '#gridContainer > table > tbody > tr:nth-child(1) > td:nth-child(1) > a',
     '#gridContainer > table > tbody > tr:nth-child(2) > td:nth-child(1) > a',
@@ -47,7 +43,7 @@ for selector in css_selectorList:
     links.append(link)
 
 driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(1)').click()
-time.sleep(4)
+time.sleep(3)
 
 
 for selector in css_selectorList:
@@ -56,7 +52,7 @@ for selector in css_selectorList:
     links.append(link)
 
 driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(3)').click()
-time.sleep(4)
+time.sleep(3)
 
 for selector in css_selectorList:
     conn = driver.find_element_by_css_selector(selector)
@@ -64,12 +60,160 @@ for selector in css_selectorList:
     links.append(link)
 
 driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
-time.sleep(4)
+time.sleep(3)
 
 for selector in css_selectorList:
     conn = driver.find_element_by_css_selector(selector)
     link = conn.get_attribute('href')
     links.append(link)
+
+
+# ## If you want all the files uncomment following section
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+# driver.find_element_by_css_selector('#gridContainer > table > tfoot > tr > td > a:nth-child(5)').click()
+# time.sleep(3)
+
+# for selector in css_selectorList:
+#     conn = driver.find_element_by_css_selector(selector)
+#     link = conn.get_attribute('href')
+#     links.append(link)
+
+
 
 print(len(links))
 for l in links:
@@ -80,11 +224,11 @@ from datetime import date
 
 today = date.today()
 
-path = os.path.join(r'C:\...\shufersal', str(today))
+path = os.path.join(r'C:\Users\Ariel\Desktop\Python\Kimonaim\shufersal', str(today))
 print(path)
 print(os.getcwd())
 
-## Now download all the files and put them in the shufersal list
+import requests, pyperclip, shutil
 
 for gz_link in links:
     pyperclip.copy(gz_link)
