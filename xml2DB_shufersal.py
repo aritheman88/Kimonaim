@@ -44,6 +44,9 @@ for xml_file in xml_files:
             print("File already loaded.")
             conn.close()
             continue
+        conn = sqlite3.connect(r'C:\..\Kimonaim\shufersalist.db') #Open a single connection instead of one for each reach
+        cur = conn.cursor()
+        cur.execute("begin") # Start a SQL transaction
         for i in items:
             filename = xml_file[:-4]
             store_id = (filename[:-13])[23:]
@@ -61,15 +64,14 @@ for xml_file in xml_files:
             UnitOfMeasurePrice = float(i.find("UnitOfMeasurePrice").text)
             AllowDiscount = int(i.find("AllowDiscount").text)
 
-            conn = sqlite3.connect(r'C:\..\Kimonaim\shufersalist.db')
-            cur = conn.cursor()
             cur.execute(
                 'INSERT INTO shufersalPrices VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
                 (filename,store_id,date,PriceUpdateDate,ItemCode,ItemName,ManufacturerName,
                  ManufactureCountry,ManufacturerItemDescription,UnitQty,Quantity,
                  UnitOfMeasure,ItemPrice,UnitOfMeasurePrice,AllowDiscount))
-            conn.commit()
-            conn.close()
+        cur.execute("commit") #commit all the inserts at once for great performance
+        conn.commit() #Not sure if this is needed.
+        conn.close()
 
 print("ALl finished!")
 
